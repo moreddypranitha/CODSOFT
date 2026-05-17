@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Voice Chatbot</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Rule-Based Voice Chatbot</h1>
+
+        <form method="POST">
+
+            <input
+                type="text"
+                id="message"
+                name="message"
+                placeholder="Type or use voice..."
+                required
+            >
+
+            <button type="submit">
+                Send
+            </button>
+
+            <!-- Voice Button -->
+            <button
+                type="button"
+                onclick="startVoice()"
+            >
+                🎤 Voice
+            </button>
+
+        </form>
+
+        <h3>Bot Response:</h3>
+
+        <div class="response-box">
+            {{ response }}
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>

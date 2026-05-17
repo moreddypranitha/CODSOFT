@@ -1,0 +1,39 @@
+from responses import get_response
+from datetime import datetime
+
+print("===================================")
+print(" Rule-Based Chatbot ")
+print(" Type 'bye' to exit ")
+print("===================================")
+
+while True:
+
+    user_input = input("You: ").lower()
+
+    # Exit condition
+    if user_input == "bye":
+
+        print("Bot: Goodbye!")
+
+        # Save exit message
+        with open("logs/chat_logs.txt", "a") as file:
+
+            current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            file.write(f"[{current_time}] You: {user_input}\n")
+            file.write(f"[{current_time}] Bot: Goodbye!\n\n")
+
+        break
+
+    # Get chatbot response
+    response = get_response(user_input)
+
+    print("Bot:", response)
+
+    # Save conversation into log file
+    with open("logs/chat_logs.txt", "a") as file:
+
+        current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+        file.write(f"[{current_time}] You: {user_input}\n")
+        file.write(f"[{current_time}] Bot: {response}\n\n")
